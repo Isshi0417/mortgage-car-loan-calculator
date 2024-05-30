@@ -7,22 +7,20 @@ def prompt(key):
     message = MESSAGES[key]
     print(f"=> {message}")
 
-# Welcome message
-prompt("welcome")
-# Explain what the program does
-prompt("explanation")
-# Ask for the total loan amount
-prompt("ask_loan")
-total_loan = float(input())
-# Ask for the monthly interest rate
-prompt("ask_interest")
-monthly_interest = float(input())
-# Ask for the duration of the loan (in months)
-prompt("ask_duration")
-duration = int(input())
-# Do the math
-monthly_payment = total_loan * (monthly_interest / 
-                                (1 - (1 + monthly_interest) ** (-duration)))
-# Print monthly payment
-prompt("result")
-print(f"=> {monthly_payment}")
+while True:
+    prompt("welcome")
+    prompt("explanation")
+    prompt("ask_loan")
+    prompt("ask_interest")
+    monthly_interest = float(input())
+    prompt("ask_duration")
+    duration = int(input())
+    monthly_payment = total_loan * (monthly_interest / 
+                                    (1 - (1 + monthly_interest) ** (-duration)))
+    prompt("result")
+    print(f"=> {monthly_payment}")
+
+    prompt("another_one")
+    answer = input().lower()
+    if (answer and answer[0] != "y") or answer == "":
+        break
