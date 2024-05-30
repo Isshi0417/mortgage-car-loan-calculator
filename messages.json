@@ -4,5 +4,5 @@
     "ask_loan": "Please enter your total loan amount: ",
     "ask_interest": "Please enter your monthly interst rate: ",
     "ask_duration": "Please enter the duration of the loan(in months): ",
-    "result": "Your monthly payment is"
+    "result": "Your monthly payment is: "
 }

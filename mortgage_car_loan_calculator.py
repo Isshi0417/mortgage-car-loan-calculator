@@ -3,18 +3,26 @@ import json
 with open('messages.json', 'r') as file:
     MESSAGES = json.load(file)
 
+def prompt(key):
+    message = MESSAGES[key]
+    print(f"=> {message}")
+
 # Welcome message
-print(MESSAGES["welcome"])
+prompt("welcome")
 # Explain what the program does
-print(MESSAGES["explanation"])
+prompt("explanation")
 # Ask for the total loan amount
-total_loan = float(input(MESSAGES["ask_loan"]))
+prompt("ask_loan")
+total_loan = float(input())
 # Ask for the monthly interest rate
-monthly_interest = float(input(MESSAGES["ask_interest"]))
+prompt("ask_interest")
+monthly_interest = float(input())
 # Ask for the duration of the loan (in months)
-duration = int(input(MESSAGES["ask_duration"]))
+prompt("ask_duration")
+duration = int(input())
 # Do the math
 monthly_payment = total_loan * (monthly_interest / 
                                 (1 - (1 + monthly_interest) ** (-duration)))
 # Print monthly payment
-print(MESSAGES["result"], monthly_payment)
+prompt("result")
+print(f"=> {monthly_payment}")
