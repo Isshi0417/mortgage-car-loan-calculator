@@ -29,6 +29,8 @@ while True:
     while invalid_number(total_loan):
         prompt("invalid_loan")
         total_loan = input()
+        
+    total_loan = float(total_loan)
 
     print("\n")
     prompt("ask_interest")
@@ -38,6 +40,11 @@ while True:
         prompt("invalid_interest")
         monthly_interest = input()
 
+    monthly_interest = float(monthly_interest)
+
+    if (monthly_interest >= 1):
+        monthly_interest /= 100
+
     print("\n")
     prompt("ask_duration")
     duration = input()
@@ -46,8 +53,10 @@ while True:
         prompt("invalid_duration")
         duration = input()
 
-    monthly_payment = float(total_loan) * (float(monthly_interest) / 
-                    (1 - (1 + float(monthly_interest)) ** (-float(duration))))
+    duration = float(duration) 
+
+    monthly_payment = total_loan * monthly_interest / \
+                        (1 - (1 + monthly_interest) ** (-duration))
     
     print("\n")
     prompt("result", " ")
@@ -58,3 +67,5 @@ while True:
     answer = input().lower()
     if (answer and answer[0] != "y") or answer == "":
         break
+    else:
+        print("\n")
