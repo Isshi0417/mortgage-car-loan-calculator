@@ -60,7 +60,7 @@ while True:
     
     print("\n")
     prompt("result", " ")
-    print(monthly_payment)
+    print(round(monthly_payment, 2))
 
     print("\n")
     prompt("another_one")
