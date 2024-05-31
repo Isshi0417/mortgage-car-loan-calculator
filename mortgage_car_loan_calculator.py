@@ -23,6 +23,7 @@ while True:
     prompt("explanation")
     print("\n")
 
+    # Total loan 
     prompt("ask_loan")
     total_loan = input()
 
@@ -33,6 +34,8 @@ while True:
     total_loan = float(total_loan)
 
     print("\n")
+
+    # Monthly interest
     prompt("ask_interest")
     monthly_interest = input()
 
@@ -46,6 +49,8 @@ while True:
         monthly_interest /= 100
 
     print("\n")
+
+    # Loan duration
     prompt("ask_duration")
     duration = input()
 
@@ -55,6 +60,7 @@ while True:
 
     duration = float(duration) 
 
+    # Monthly payment
     monthly_payment = total_loan * monthly_interest / \
                         (1 - (1 + monthly_interest) ** (-duration))
     
@@ -63,8 +69,11 @@ while True:
     print(round(monthly_payment, 2))
 
     print("\n")
+
+    # Repeated calculation
     prompt("another_one")
     answer = input().lower()
+
     if (answer and answer[0] != "y") or answer == "":
         break
     else:
