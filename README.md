@@ -3,9 +3,7 @@
 A simple mortgage / car loan calculator. It takes the total loan amount, monthly interest rate, and loan duration (in months) to calculate the monthly payment.
 
 This program uses the standard formula to calculate the loans:
-$$
-monthly\ payment = loan\ amount * ( \frac{monthly\ interest\ rate}{1 - (1 + monthly\ interest\ rate)^{-loan\ duration\ in\ months}} )
-$$
+$$monthly\ payment = loan\ amount * ( \frac{monthly\ interest\ rate}{1 - (1 + monthly\ interest\ rate)^{-loan\ duration\ in\ months}} )$$
 
 ### Program Process
 
