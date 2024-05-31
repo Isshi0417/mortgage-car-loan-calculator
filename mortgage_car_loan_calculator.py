@@ -26,30 +26,35 @@ def invalid_int(number_str):
     return False
 
 # Calculator Program
-while True:
-    prompt("welcome")
-    prompt("explanation")
 
-    # Ask currency
-    prompt("ask_currency_format")
-    currency_format = input().lower()[0]
+print(MESSAGES["divider"])
+prompt("welcome")
+prompt("explanation")
+print(MESSAGES["divider"])
 
-    while currency_format != ("y") and currency_format != ("n"):
-        prompt("invalid_answer")
-        currency_format = input().lower()
+# Ask currency
+prompt("ask_currency_format")
+currency_format = input().lower()[0]
 
-    if currency_format == "y":
-        print("\n")
-        prompt("decimal_places")
+while currency_format != ("y") and currency_format != ("n"):
+    prompt("invalid_answer")
+    currency_format = input().lower()
+
+if currency_format == "y":
+    print(MESSAGES["divider"])
+    prompt("decimal_places")
+    decimal_places = input()
+
+    while invalid_int(decimal_places):
+        prompt("invalid_integer")
         decimal_places = input()
-
-        while invalid_int(decimal_places):
-            prompt("invalid_integer")
-            decimal_places = input()
     
-        decimal_places = int(decimal_places)
+decimal_places = int(decimal_places)
 
-    print("\n")
+print(MESSAGES["divider"])
+
+# Calculations
+while True:
 
     # Total loan 
     prompt("ask_loan")
@@ -61,7 +66,7 @@ while True:
         
     total_loan = float(total_loan)
 
-    print("\n")
+    print(MESSAGES["divider"])
 
     # Monthly interest
     prompt("ask_interest")
@@ -76,7 +81,7 @@ while True:
     if (monthly_interest >= 1):
         monthly_interest /= 100
 
-    print("\n")
+    print(MESSAGES["divider"])
 
     # Loan duration
     prompt("ask_duration")
@@ -92,7 +97,7 @@ while True:
     monthly_payment = total_loan * monthly_interest / \
                         (1 - (1 + monthly_interest) ** (-duration))
     
-    print("\n")
+    print(MESSAGES["divider"])
     prompt("result", " ")
 
     if currency_format == "y":
@@ -100,7 +105,7 @@ while True:
     else: 
         print(round(monthly_payment))
 
-    print("\n")
+    print(MESSAGES["divider"])
 
     # Repeated calculation
     prompt("another_one")
@@ -109,4 +114,4 @@ while True:
     if (answer and answer[0] != "y") or answer == "":
         break
     else:
-        print("\n")
+        print(MESSAGES["divider"])
