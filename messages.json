@@ -1,11 +1,15 @@
 {
     "welcome": "Welcome to the Mortgage/Car Loan Calculator!",
-    "explanation": "This program takes the total loan, monthly interest rate, and duration of the loan(in months) to calculate the monthly payment.",
+    "explanation": "This program takes the total loan, monthly interest rate, and duration of the loan(in months) to calculate the monthly payment.\n",
+    "ask_currency_format": "Does your currency have decimal places? (Y/n): ",
+    "invalid_answer": "Please enter either 'Y' or 'N': ",
+    "decimal_places": "How many decimal places does your currency have? ",
+    "invalid_integer": "Hmm... That doesn't look like a valid number. Please enter the number of decimal places as an integer: ",
     "ask_loan": "Please enter your total loan amount: ",
     "ask_interest": "Please enter your monthly interest rate: ",
     "ask_duration": "Please enter the duration of the loan(in months): ",
     "result": "Your monthly payment is:",
-    "another_one": "Would you like to calculate another monthly loan payment? (Y/n)",
+    "another_one": "Would you like to calculate another monthly loan payment? (Y/n):",
     "invalid_loan": "Hmm... That doesn't look like a valid number. Please enter the correct loan amount: ",
     "invalid_interest": "Hmm... That doesn't look like a valid number. Please enter the correct interest: ",
     "invalid_duration": "Hmm... That doesn't look like a valid number. Please enter the correct duration(in months): "

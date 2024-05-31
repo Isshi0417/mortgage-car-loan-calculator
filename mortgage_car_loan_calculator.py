@@ -9,9 +9,17 @@ def prompt(key, format = "\n"):
     message = MESSAGES[key]
     print(f" -> {message}", end = format)
 
-def invalid_number(number_str):
+def invalid_float(number_str):
     try:
         float(number_str)
+    except ValueError:
+        return True
+    
+    return False
+
+def invalid_int(number_str):
+    try:
+        int(number_str)
     except ValueError:
         return True
     
@@ -21,13 +29,33 @@ def invalid_number(number_str):
 while True:
     prompt("welcome")
     prompt("explanation")
+
+    # Ask currency
+    prompt("ask_currency_format")
+    currency_format = input().lower()[0]
+
+    while currency_format != ("y") and currency_format != ("n"):
+        prompt("invalid_answer")
+        currency_format = input().lower()
+
+    if currency_format == "y":
+        print("\n")
+        prompt("decimal_places")
+        decimal_places = input()
+
+        while invalid_int(decimal_places):
+            prompt("invalid_integer")
+            decimal_places = input()
+    
+        decimal_places = int(decimal_places)
+
     print("\n")
 
     # Total loan 
     prompt("ask_loan")
     total_loan = input()
 
-    while invalid_number(total_loan):
+    while invalid_float(total_loan):
         prompt("invalid_loan")
         total_loan = input()
         
@@ -39,7 +67,7 @@ while True:
     prompt("ask_interest")
     monthly_interest = input()
 
-    while invalid_number(monthly_interest):
+    while invalid_float(monthly_interest):
         prompt("invalid_interest")
         monthly_interest = input()
 
@@ -54,7 +82,7 @@ while True:
     prompt("ask_duration")
     duration = input()
 
-    while invalid_number(duration):
+    while invalid_float(duration):
         prompt("invalid_duration")
         duration = input()
 
@@ -66,7 +94,11 @@ while True:
     
     print("\n")
     prompt("result", " ")
-    print(round(monthly_payment, 2))
+
+    if currency_format == "y":
+        print(round(monthly_payment, decimal_places))
+    else: 
+        print(round(monthly_payment))
 
     print("\n")
 
